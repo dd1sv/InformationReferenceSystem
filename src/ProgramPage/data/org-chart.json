@@ -1,0 +1,472 @@
+{
+    "name": "Что требуется",
+    "children": [
+      {
+        "name": "Работа с фотографиями",
+        "attributes": {
+          
+        },
+        "children": [
+          {
+            "name": "Улучшение качества фотографии",
+            "attributes": {
+              
+            },
+            "children": [
+              {
+                "name": "ImgOnline",
+                "attributes": {
+                    "url": "imgonline.com.ua"
+                  }
+              },
+              {
+                "name": "Let`s Enhance",
+                "attributes": {
+                    "url": "letsenhance.io"
+                  }
+              },
+              {
+                "name": "myHeritage",
+                "attributes": {
+                    "url": "myheritage.com"
+                  }
+              }
+            ]
+          },
+          {
+            "name": "Поиск по фотографии",
+            "attributes": {
+              
+            },
+            "children": [
+              {
+                "name": "Человека",
+                "attributes": {
+                  
+                },
+              "children": [
+            {
+              "name": "Findclone",
+              "attributes": {
+                  "url": "findclome.ru"
+                }
+            },
+            {
+              "name": "PimEyes",
+                "attributes": {
+                    "url": "pimeyes.com"
+                  }
+            },
+            {
+              "name": "search4faces",
+                "attributes": {
+                    "url": "search4faces.com"
+                  }
+            }
+          ]
+              },
+              {
+                "name": "Местоположеия",
+                "attributes": {
+                    "department": "Fabrication"
+                  },
+                "children": [
+              {
+                "name": "Человека"
+              },
+              {
+                "name": "Местоположеия"
+              }
+            ]
+              }
+            ]
+          },
+          {
+            "name": "Определение возраста человека",
+            "attributes": {
+              
+            },
+            "children": [
+              {
+                "name": "How old",
+                "attributes": {
+                    "url": "how-old.net"
+                  }
+              },
+              {
+                "name": "Pictriev",
+                "attributes": {
+                    "url": "pictriev.com"
+                  }
+              }
+            ]
+          },
+          {
+            "name": "Просмотр метаданных",
+            "attributes": {
+              
+            },
+            "children": [
+              {
+                "name": "exif.regex",
+                "attributes": {
+                    "url": "exif.regex.info"
+                  }
+              },
+              {
+                "name": "Fotoforensics",
+                "attributes": {
+                    "url": "fotoforensics.com"
+                  }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Работа с социальными сетями",
+        "attributes": {
+          "department": "Marketing"
+        },
+        "children": [
+          {
+            "name": "Вконтакте",
+            "attributes": {
+              "url": "vk.com"
+            },
+            "children": [
+              {
+                "name": "City4me",
+                "attributes": {
+                  "url": "vk.city4me.com"
+                }
+              }, {
+                "name": "nebaz",
+                "attributes": {
+                  "url": "nebaz.ru"
+                }
+              },
+              {
+                "name": "220vk",
+                "attributes": {
+                  "url": "220vk.com"
+                }
+              },
+              {
+                "name": "vkdia",
+                "attributes": {
+                  "url": "vkdia.com"
+                }
+              },
+              {
+                "name": "searchlikes",
+                "attributes": {
+                  "url": "searchlikes.ru"
+                }
+              },
+              {
+                "name": "yasiv.com/vk",
+                "attributes": {
+                  "url": "yasiv.com/vk"
+                }
+              },
+              {
+                "name": "vk.watch",
+                "attributes": {
+                  "url": "vk.watch"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Одноклассники",
+            "attributes": {
+              "url": "ok.ru"
+            },
+            "children": [
+              {
+                "name": "Barkov",
+                "attributes": {
+                  "url": "barkov.net"
+                }
+              },
+              {
+                "name": "Parser-ok",
+                "attributes": {
+                  "url": "parser-ok.com"
+                }
+              },
+              {
+                "name": "City4me",
+                "attributes": {
+                  "url": "ok.city4me.com"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Twitter",
+            "attributes": {
+              "url": "twitter.com"
+            },
+            "children": [
+              {
+                "name": "Followerwonk",
+                "attributes": {
+                  "url": "followerwonk.com"
+                }
+              },
+              {
+                "name": "Hashtagify",
+                "attributes": {
+                  "url": "hashtagify.com"
+                }
+              },
+              {
+                "name": "Jeffprod",
+                "attributes": {
+                  "url": "twitter.jeffprod.com"
+                }
+              },
+              {
+                "name": "Spoonbill",
+                "attributes": {
+                  "url": "spoonbill.io"
+                }
+              },{
+                "name": "Socialrank",
+                "attributes": {
+                  "url": "socialrank.com"
+                }
+              },{
+                "name": "Tweetbeaver",
+                "attributes": {
+                  "url": "tweetbeaver.com"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Facebook",
+            "attributes": {
+              "url": "facebook.com"
+            },
+            "children": [
+              {
+                "name": "ПО написанное автором"
+              }
+            ]
+          },
+          {
+            "name": "Instagram",
+            "attributes": {
+              "url": "instagram.com"
+            },
+            "children": [
+              {
+                "name": "Gramotool",
+                "attributes": {
+                  "url": "gramotool.ru"
+                }
+              },
+              {
+                "name": "instadp",
+                "attributes": {
+                  "url": "instadp.com"
+                }
+              },
+              {
+                "name": "searchmy.bio",
+                "attributes": {
+                  "url": "searchmy"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Работа с геолокацией",
+        "attributes": {
+          "department": "Marketing"
+        },
+        "children": [
+          {
+          "name": "Геолокация сообщений",
+          
+          "children": [
+          {
+            "name": "Twilter",
+            "attributes": {
+              "url": "twilert.com"
+            }
+          },
+          {
+            "name": "OMTMap",
+            "attributes": {
+              "url": "clck.ru/TnfEn"
+            }
+          },
+          {
+            "name": "MapD: MIT",
+            "attributes": {
+              "url": "mapd.csail.mit.edu/tweetmap"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Фотографии по геолокации",
+        
+        "children": [
+        {
+          "name": "Photo-map",
+          "attributes": {
+            "url": "photo-map.ru"
+          }
+        },
+        {
+          "name": "SnRadar",
+          "attributes": {
+            "url": "goo.su/4nWV"
+          }
+        },
+        {
+          "name": "Instagram-explorer",
+          "attributes": {
+            "url": "goo.su/4NwV"
+          }
+        },{
+          "name": "map.snapchat",
+          "attributes": {
+            "url": "map.snapchat.com"
+          }
+        },
+        {
+          "name": "Instmap",
+          "attributes": {
+            "url": "instmap.com"
+          }
+        }
+      ]
+    }
+        ]
+      },
+      {
+        "name": "Дополнительно",
+        "attributes": {
+          
+        },
+        "children": [
+         
+          {
+            "name": "Поиск записей",
+            "attributes": {
+              
+            },
+            "children": [
+              
+              {
+                "name": "Shikari",
+                "attributes": {
+                    "url": "shikari.do"
+                  }
+              },
+              {
+                "name": "Kibrium",
+                "attributes": {
+                    "url": "kibrium.io"
+                  }
+              },
+              {
+                "name": "social-searcher",
+                "attributes": {
+                    "url": "social-searcher.com"
+                  }
+              }
+            ]
+          },
+          {
+            "name": "Поиск по никнейму",
+            "attributes": {
+              
+            },
+            "children": [
+              
+              {
+                "name": "NameCHK",
+                "attributes": {
+                    "url": "namechk.com"
+                  }
+              },
+              {
+                "name": "WhatsMyName",
+                "attributes": {
+                    "url": "whatsmyname.app"
+                  }
+              },
+              {
+                "name": "instantusername",
+                "attributes": {
+                    "url": "instantusername.com"
+                  }
+              },
+
+              {
+                "name": "Mail.ru",
+                "attributes": {
+                    "url": "go.mail.ru/search_social"
+                  }
+              }
+            ]
+          },
+          {
+            "name": "Просмотр сохранённой копии страницы",
+            "attributes": {
+              
+            },
+            "children": [
+              
+              {
+                "name": "Google"
+                
+              },
+              {
+                "name": "Yandex.ru"
+                
+              },
+              {
+                "name": "Bing.com"
+                
+              },
+
+              {
+                "name": "Mail.ru"
+                
+              },
+              {
+                "name": "Web.Archive"
+                
+              }
+            ]
+          },
+          {
+            "name": "Сброс пароля",
+            "attributes": {
+              
+            },
+            "children": [
+              
+              {
+                "name": "Социальные сети и сервисы"
+                
+              }
+            ]
+          }
+            
+          
+        ]
+      }
+    ]
+  }
+  
