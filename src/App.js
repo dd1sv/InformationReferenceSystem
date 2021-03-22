@@ -8,7 +8,10 @@ import FirstPage from './FirstPage';
 import {HashRouter as Router, Route} from 'react-router-dom';
 import PreparationPage from './PreparationPage/PreparationPage';
 import SecondPage from './SecondPage/SecondPage';
-import ProgramPage from './ProgramPage/ProgramPage'
+import ProgramPage from './ProgramPage/ProgramPage';
+import Ref from './SecondPage/ref'
+import Reff from './SecondPage/reff'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +40,10 @@ function App() {
     <Route exact path="/preparation" render={()=><PreparationPage url={'/preparation'}/>} component={PreparationPage}/>
     <Route exact path="/program-pages" render={()=><PreparationPage url={'/program-pages'}/>} component={ProgramPage}/>
     <Route exact path="/search-page" render={()=><PreparationPage url={'/search-page'}/>} component={SecondPage}/>
+    <Route exact path="/search-page/vk" render={()=><Ref url={'/program-pages/vk'}/>} component={Ref}/>
+    <Route exact path="/search-page/ok" render={()=><Reff url={'/program-pages/ok'}/>} component={Reff}/>
+
+
 
     </Route>
     </div>
