@@ -43,29 +43,17 @@ function FirstPage() {
     <Router>
     {/* <Grid container spacing={1}> */}
     <div className={classes.card}>
-
-   
-
     <StartCards  name={'Наставления перед проведением сбора информации в социальных сетях'} url={'/preparation'} description={'ЛлалалалалалОПИСАНИЕаываыва ываыва ываыва ываыва'}/>
-   
     </div>
     <div className={classes.card}>
-
-   
-
-<StartCards  name={'Реализация поиска информации о человеке в социальных сетях'} url={'/search-page'} description={'ЛлалалалалалОПИСАНИЕаываыва ываыва ываыва ываыва'}/>
-
-</div>
-
-<div className={classes.card}>
-
-   
-
-<StartCards imgUrl={'img/3.png'} name={'Программы и сервисов для поиса, сбора и хранения информации в социальных сетях'} url={'/program-pages'} description={'Дерево связей с названиями и URL-адресами'}/>
-
-</div>
+    <StartCards  name={'Реализация поиска информации о человеке в социальных сетях'} url={'/search-page'} description={'ЛлалалалалалОПИСАНИЕаываыва ываыва ываыва ываыва'}/>
+    </div>
+    <div className={classes.card}>
+    <StartCards imgUrl={'img/3.png'} name={'Программы и сервисов для поиса, сбора и хранения информации в социальных сетях'} url={'/program-pages'} description={'Дерево связей с названиями и URL-адресами'}/>
+    </div>
     
     {/* </Grid> */}
+    
 </Router>
     </div>
     </>

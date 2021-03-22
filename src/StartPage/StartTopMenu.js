@@ -50,7 +50,8 @@ function StartTopMenu() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="static"
+      style={{backgroundColor: '#1976d2'}}>
         <Toolbar>
 
           <Typography className={classes.title} variant="h6" noWrap>
