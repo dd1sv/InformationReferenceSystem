@@ -65,16 +65,40 @@ export default function Menu() {
         <Divider />
         <List>
           <Link to='/search-page/vk'>
-            <ListItem ListItem button key={'Inbox'}>
+            <ListItem ListItem button key={'vk'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={'Inbox'} />
+              <ListItemText primary={'Вконакте'} />
             </ListItem>
             </Link>
 
             <Link to='/search-page/ok'>
-            <ListItem ListItem button key={'Inbox'}>
+            <ListItem ListItem button key={'ok'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={'Inbox'} />
+              <ListItemText primary={'Одноклассники'} />
+            </ListItem>
+            </Link>
+            <Link to='/search-page/Facebook'>
+            <ListItem ListItem button key={'Facebook'}>
+              <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={'Facebook'} />
+            </ListItem>
+            </Link>
+            <Link to='/search-page/Instagram'>
+            <ListItem ListItem button key={'Instagram'}>
+              <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={'Instagram'} />
+            </ListItem>
+            </Link>
+            <Link to='/search-page/Twitter'>
+            <ListItem ListItem button key={'Twitter'}>
+              <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={'Twitter'} />
+            </ListItem>
+            </Link>
+            <Link to='/search-page/TikTok'>
+            <ListItem ListItem button key={'TikTok'}>
+              <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={'Tik-Tok'} />
             </ListItem>
             </Link>
           {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (

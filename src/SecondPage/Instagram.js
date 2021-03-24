@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Reff() {
+export default function Instagram() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
