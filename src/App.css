@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+.MuiSvgIcon-root .MuiStepIcon-root .MuiStepIcon-active{
+  background-color: yellow;
+}
