@@ -37,6 +37,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
   },
+  link: {
+    color: 'black',
+    textDecoration: 'none!important',
+    
+  },
+ 
+  
 }));
 
 export default function Menu() {
@@ -56,46 +63,48 @@ export default function Menu() {
         anchor="right"
       >
         <div className={classes.toolbar} />
-        <Link to='/'>
+        <Link to='/' className={classes.link} >
             <ListItem ListItem button key={'Вернуться в главное меню'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={'Главное меню'} />
+              <ListItemText  primary={'Главное меню'} />
             </ListItem>
             </Link>
         <Divider />
+        <Divider />
+        <Divider />
         <List>
-          <Link to='/search-page/vk'>
+          <Link to='/search-page/vk' className={classes.link}>
             <ListItem ListItem button key={'vk'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={'Вконакте'} />
             </ListItem>
             </Link>
 
-            <Link to='/search-page/ok'>
-            <ListItem ListItem button key={'ok'}>
+            <Link to='/search-page/ok'className={classes.link}>
+            <ListItem ListItem button key={'ok'} >
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={'Одноклассники'} />
             </ListItem>
             </Link>
-            <Link to='/search-page/Facebook'>
+            <Link to='/search-page/Facebook' className={classes.link}>
             <ListItem ListItem button key={'Facebook'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={'Facebook'} />
             </ListItem>
             </Link>
-            <Link to='/search-page/Instagram'>
+            <Link to='/search-page/Instagram' className={classes.link}>
             <ListItem ListItem button key={'Instagram'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={'Instagram'} />
             </ListItem>
             </Link>
-            <Link to='/search-page/Twitter'>
+            <Link to='/search-page/Twitter' className={classes.link}>
             <ListItem ListItem button key={'Twitter'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={'Twitter'} />
             </ListItem>
             </Link>
-            <Link to='/search-page/TikTok'>
+            <Link to='/search-page/TikTok' className={classes.link}>
             <ListItem ListItem button key={'TikTok'}>
               <ListItemIcon>{0 % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={'Tik-Tok'} />
@@ -108,15 +117,7 @@ export default function Menu() {
             </ListItem>
           ))} */}
         </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        
       </Drawer>
     </div>
   );
