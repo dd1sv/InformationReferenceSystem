@@ -134,6 +134,7 @@ export default function OK() {
       </TabPanel>
       <TabPanel value={value} index={1}>
       <div className={classes.textCenter}>
+        
       <Typography gutterBottom>
       Профиль в Одноклассниках может быть закрыт на платной основе, а значит данной функцией пользуется небольшое колличество людей, что является положительным фактором при поиске информации.
         </Typography>
