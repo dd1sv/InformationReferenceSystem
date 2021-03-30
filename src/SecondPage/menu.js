@@ -71,7 +71,7 @@ export default function Menu() {
             </Link>
         <Divider />
         <Divider />
-        <Divider />
+        <Divider/>
         <List>
           <Link to='/search-page/vk' className={classes.link}>
             <ListItem ListItem button key={'vk'}>

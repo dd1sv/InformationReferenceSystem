@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Поиск по Facebook</title>
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+            font-size: 11px;
+        }
+
+        div {
+            margin: 10px;
+        }
+
+        div#main {
+            margin: 0 auto;
+            width: 600px;
+        }
+        #header{
+            margin: 0 auto;
+            width: 800px;
+            text-align: center;
+        }
+
+        div #header {
+            background: #4267b2;
+            color: white;
+            padding: 5px;
+        }
+
+        #header a,
+        #header a:visited {
+            color: white;
+        }
+
+        a {
+            color: #4267b2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background: #4267b2;
+            color: #A9BCF5;
+        }
+
+        h3 {
+            color: #4267b2;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        .updates-col {
+            padding-left: 25px;
+            width: 30%;
+            color: #666;
+        }
+
+        .updates-col ul {
+            padding-left: 15px;
+        }
+
+        .date {
+            color: #888888
+        }
+
+        .search_category,
+        #filter-keywords,
+        #filter-dates,
+        #final-buttons,
+        #current-filters {
+            display: none;
+        }
+        .instruction{
+            margin: 45px 0 50px  0;
+        }
+    </style>
+    <script type="text/javascript">
+        var search_types = ['top', 'videos', 'posts', 'people', 'photos', 'pages', 'places', 'events'];
+        var filters = []
+
+        function clear_filters() {
+            filters = [];
+            document.getElementById('current-filters').innerHTML = '';
+            var elements = document.getElementsByTagName("input");
+            for (var ii = 0; ii < elements.length; ii++) {
+                if (elements[ii].type == "text") {
+                    elements[ii].value = "";
+                }
+            }
+        }
+
+        function make_url() {
+
+            search_keyword = document.getElementById("search_keyword").value;
+            search_type = document.getElementById('select_search_type').value;
+
+            if (search_types.indexOf(search_type) < 0) {
+
+                alert('Search type ' + search_type + ' not existing');
+                return;
+            }
+            if (!search_keyword) {
+                search_keyword = '*';
+            }
+
+            joined_filters = '{' + filters.join() + '}';
+            encoded_filters = btoa(joined_filters).replace('=', '');
+            var search_url = 'https://apps.facebook.com/search/' + search_type + '/?q=';
+
+            search_url += search_keyword + '&epa=FILTERS&filters=' + encoded_filters;
+            return search_url;
+        }
+
+        function add_filter(obj, arg_name) {
+
+            var filter_name = obj.className;
+            var value_field = filter_name + '-' + arg_name;
+            arg_value = document.getElementsByClassName(value_field);
+            var value = '';
+            for (i = 0; i < arg_value.length; i++) {
+                if (arg_value[i].value) {
+                    value = arg_value[i].value;
+                    break;
+                }
+            }
+            console.log(value);
+            filters.push('"' + filter_name + '":"{\\"name\\":\\"' + arg_name + '\\",\\"args\\":\\"' + value + '\\"}"');
+            filters_div = document.getElementById('current-filters');
+            filters_div.innerHTML += '<li><b>' + filter_name + '</b> { ' + arg_name + ' : ' + value + '}</li>';
+        }
+
+        function add_date_filter() {
+
+            // get user values 
+            start_year = document.getElementById('start_year').value;
+            start_month = start_year + '-' + document.getElementById('start_month').value;
+            start_day = start_month + '-' + document.getElementById('start_day').value;
+
+            end_year = document.getElementById('end_year').value;
+            end_month = end_year + '-' + document.getElementById('end_month').value;
+            end_day = end_month + '-' + document.getElementById('end_day').value;
+
+            search_type = document.getElementById('select_search_type').value;
+
+            console.log('a' + start_year);
+            console.log('b' + start_month);
+            console.log('c' + start_day);
+
+
+            if (search_type == 'events') {
+
+                date_interval = start_day + '~' + end_day;
+                console.log(date_interval);
+                filter = '"rp_events_date":"{\\"name\\":\\"filter_events_date\\",\\"args\\":\\"' + date_interval +
+                    '\\"}"';
+                filters_div = document.getElementById('current-filters');
+                filters_div.innerHTML += '<li><b> rp_events_date </b> {"name":"filter_events_date","args":"' +
+                    date_interval + '"}</li>';
+
+            } else {
+
+                filter =
+                    '"rp_creation_time":"{\\"name\\":\\"creation_time\\",\\"args\\":\\"{\\\\\\"start_year\\\\\\":\\\\\\"' +
+                    start_year + '\\\\\\",\\\\\\"start_month\\\\\\":\\\\\\"' + start_month +
+                    '\\\\\\",\\\\\\"end_year\\\\\\":\\\\\\"' + end_year + '\\\\\\",\\\\\\"end_month\\\\\\":\\\\\\"' +
+                    end_month + '\\\\\\",\\\\\\"start_day\\\\\\":\\\\\\"' + start_day +
+                    '\\\\\\",\\\\\\"end_day\\\\\\":\\\\\\"' + end_day + '\\\\\\"}\\"}"';
+                filters_div = document.getElementById('current-filters');
+                filters_div.innerHTML += '<li><b> rp_creation_time </b> {"start_year":"' + start_year +
+                    '","start_month":"' + start_month + '","end_year":"' + end_year + '","end_month":"' + end_month +
+                    '","start_day":"' + start_day + '","end_day":"' + end_day + '"}</li>';
+            }
+
+            filters.push(filter);
+        }
+
+        function show_only(obj) {
+
+            divsToHide = document.getElementsByClassName("search_category");
+            for (var i = 0; i < divsToHide.length; i++) {
+                divsToHide[i].style.display = "none";
+            }
+            document.getElementById(obj.value).style.display = 'block';
+            document.getElementById("filter-keywords").style.display = 'block';
+            document.getElementById("filter-dates").style.display = 'block';
+            document.getElementById("final-buttons").style.display = 'block';
+            document.getElementById("current-filters").style.display = 'block';
+            clear_filters();
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <div id="header">
+        <h1>
+            Данная программа обеспечивает дополненный поиск по фильтрам Facebook </br> 
+
+        </h1>
+    </div>
+
+    <div id="main">
+        
+
+        <h4 class="instruction">
+            Инструкция 
+
+        </h4>
+
+        <div class="instruction__text">
+            1. В графе "Публикации", "Люди" необходимо указать "Фильтр по ключевым словам", если поиск производится по ним. 
+            <br>
+            2.В зависимости от указания в "()" слов, указать либо набор букв, слов, либо id-профиля(узнать можно тут, если он изменён пользователем на никнейм - https://findmyfbid.in/finding-facebook-id/)
+        </div>
+
+        <div>
+            <h2>Поиск</h2>
+            Что вы хотите найти
+
+            <select name="search_type" id="select_search_type" onchange="show_only(this)">
+                <option disabled selected value> Выберите тип</option>
+                <option class="" value="posts">Публикации</option>
+                <option class="" value="people">Люди</option>
+                <option class="" value="photos">Фотографии</option>
+                <option class="" value="pages">Страницы</option>
+                <option class="" value="places">Места</option>
+                <option class="" value="videos">Видео</option>
+                <option class="" value="events">События</option>
+                <option class="" value="top">Группы</option>
+            </select>
+
+        </div>
+
+
+        <div id="posts" class="search_category">
+
+            <h2>Искать посты</h2>
+
+            <table>
+
+                <tr>
+                    <td>
+                        Сортировать по последнему</td>
+                    <td>
+                        <input class="rp_chrono_sort-chronosort" name="chronosort" type="hidden" placeholder="ID, либо название"
+                            value="">
+                    </td>
+                    <td>
+                        <input class="rp_chrono_sort" name="rp_chrono_sort-chronosort" type="submit"
+                            onClick="add_filter(this,'chronosort')" value="Добавить фильтр">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Сообщения из группы(требуется ключевое слово):</td>
+                    <td>
+                        <input class="rp_author-merged_public_posts" name="merged_public_posts" type="hidden"></td>
+                    <td>
+                        <input class="rp_author" name="rp_author-merged_public_posts" type="submit"
+                            onClick="add_filter(this,'merged_public_posts')" value="Добавить фильтр">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Сообщения от
+                        Сообщения от определенного объекта (например, страницы / пользователя):</td>
+                    <td>
+                        <input class="rp_author-author" name="author" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_author" name="rp_author-author" type="submit"
+                            onClick="add_filter(this,'author')" value="Добавить фильтр">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Только сообщения, опубликованные в группе</td>
+                    <td>
+                        <input class="rp_group-group_posts" name="group_posts" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_group" name="rp_group-group_posts" type="submit"
+                            onClick="add_filter(this,'group_posts')" value="Добавить фильтр">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        С отметкой о местоположении</td>
+                    <td>
+                        <input class="rp_location-location" name="location" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_location" name="rp_location-location" type="submit"
+                            onClick="add_filter(this,'location')" value="Добавить фильтр">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+
+
+        <div id="top" class="search_category">
+
+            <h2>Искать в самых популярных элементах</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        Сортировать по последнему
+                        <input class="rp_chrono_sort-chronosort" name="chronosort" type="hidden" placeholder="Поле ввода"
+                            value=""></td>
+                    <td></td>
+                    <td>
+                        <input class="rp_chrono_sort" name="rp_chrono_sort-chronosort" type="submit"
+                            onClick="add_filter(this,'chronosort')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Сообщения от определенного объекта (например, страницы / пользователя):</td>
+                    <td>
+                        <input class="rp_author-author" name="author" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_author" name="rp_author-author" type="submit"
+                            onClick="add_filter(this,'author')" value="Добавить фильтр">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Сообщения из группы (требуется ключевое слово):</td>
+                    <td>
+                        <input class="rp_author-merged_public_posts" name="merged_public_posts" type="hidden"></td>
+                    <td>
+                        <input class="rp_author" name="rp_author-merged_public_posts" type="submit"
+                            onClick="add_filter(this,'merged_public_posts')" value="Добавить фильтр"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Только сообщения, опубликованные в группе</td>
+                    <td>
+                        <input class="rp_group-group_posts" name="group_posts" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_group" name="rp_group-group_posts" type="submit"
+                            onClick="add_filter(this,'group_posts')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        С отметкой о местоположении</td>
+                    <td>
+                        <input class="rp_location-location" name="location" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_location" name="rp_location-location" type="submit"
+                            onClick="add_filter(this,'location')" value="Добавить фильтр">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div id="people" class="search_category">
+
+            <h2>Искать людей</h2>
+            <table>
+                <tr>
+                    <td>
+                        Город</td>
+                    <td>
+                        <input class="city-users_location" name="users_location" type="text" placeholder="Название города"
+                            value=""></td>
+                    <td>
+                        <input class="city" name="city-chronosort" type="submit"
+                            onClick="add_filter(this,'users_location')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Школа</td>
+                    <td>
+                        <input class="school-users_school" name="users_school" type="text" placeholder="Поле ввода"
+                            value=""></td>
+                    <td>
+                        <input class="school" name="school-users_school" type="submit"
+                            onClick="add_filter(this,'users_school')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Работа</td>
+                    <td>
+                        <input class="employer-users_employer" name="users_employer" type="text" placeholder="Поле ввода"
+                            value=""></td>
+                    <td>
+                        <input class="employer" name="employer-users_employer" type="submit"
+                            onClick="add_filter(this,'users_employer')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Друзья с</td>
+                    <td>
+                        <input class="friends-users_friends_of_people" name="users_friends_of_people" type="text"
+                            placeholder="Поле ввода" value=""></td>
+                    <td>
+                        <input class="friends" name="friends-users_friends_of_people" type="submit"
+                            onClick="add_filter(this,'users_friends_of_people')" value="Добавить фильтр">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+
+
+
+        <div id="photos" class="search_category">
+            <h2>Поиск фотографий</h2>
+            <table>
+                <tr>
+                    <td>
+                        Сообщение от</td>
+                    <td>
+                        <input class="rp_author-author" name="author" type="text" placeholder="Поле ввода" value=""></td>
+                    <td>
+                        <input class="rp_author" name="rp_author-author" type="submit"
+                            onClick="add_filter(this,'author')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        С отметкой о местоположении</td>
+                    <td>
+                        <input class="rp_location-location" name="location" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_location" name="rp_location-location" type="submit"
+                            onClick="add_filter(this,'location')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Фото вы видели</td>
+                    <td>
+                        <input class="interacted_photos-interacted_photos" name="interacted_photos" type="hidden"></td>
+                    <td>
+                        <input class="interacted_photos" name="interacted_photos-interacted_photos" type="submit"
+                            onClick="add_filter(this,'location')" value="Добавить фильтр">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+        <div id="videos" class="search_category">
+            <h2>Искать видео</h2>
+            <table>
+                <tr>
+                    <td>
+                        Live-видео</td>
+                    <td>
+                        <input class="videos_source-videos_live" name="videos_live" type="hidden"
+                            placeholder="Поле ввода" value=""></td>
+                    <td>
+                        <input class="videos_source" name="videos_source-videos_live" type="submit"
+                            onClick="add_filter(this,'videos_live')" value="Добавить фильтр"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Отрывки видео/Эпизоды</td>
+                    <td>
+                        <input class="videos_source-videos_episode" name="videos_episode" type="hidden"
+                            placeholder="Поле ввода" value=""></td>
+                    <td>
+                        <input class="videos_source" name="videos_source-videos_episode" type="submit"
+                            onClick="add_filter(this,'videos_episode')" value="Добавить фильтр"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        От друзей и группы</td>
+                    <td>
+                        <input class="videos_source-videos_feed" name="videos_feed" type="hidden"
+                            placeholder="Поле ввода" value=""></td>
+                    <td>
+                        <input class="videos_source" name="videos_source-videos_feed" type="submit"
+                            onClick="add_filter(this,'videos_feed')" value="Добавить фильтр"></td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        С отметкой о местоположении</td>
+                    <td>
+                        <input class="rp_location-location" name="location" type="text" placeholder="Поле ввода"></td>
+                    <td>
+                        <input class="rp_location" name="rp_location-location" type="submit"
+                            onClick="add_filter(this,'location')" value="Добавить фильтр"></td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+        <div id="events" class="search_category">
+            <h2>Поиск событий</h2>
+            <table>
+                <tr>
+                    <td>
+                        Расположение</td>
+                    <td>
+                        <input class="rp_events_location-filter_events_location" name="filter_events_location"
+                            type="text" placeholder="Локация" value=""></td>
+                    <td>
+                        <input class="rp_events_location" name="rp_events_location-filter_events_location" type="submit"
+                            onClick="add_filter(this,'filter_events_location')" value="Добавить фильтр">
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+
+
+
+        <div id="pages" class="search_category">
+            <h2>Страницы поиска</h2>
+            <table>
+                <tr>
+                    <td>
+                        Проверено</td>
+                    <td>
+                        <input class="verified-pages_verified" name="pages_verified" type="hidden" value=""></td>
+                    <td>
+                        <input class="verified" name="verified-pages_verified" type="submit"
+                            onClick="add_filter(this,'pages_verified')" value="Добавить фильтр"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Местный бизнес или место</td>
+                    <td>
+                        <select class="category-pages_category" name="pages_category">
+                            <option value="1006">Местный бизнес или место</option>
+                            <option value="1013">Компания, организация или учреждение</option>
+                            <option value="1009">Бренд или продукт</option>
+                            <option value="1007,180164648685982">Исполнитель, группа или общественный деятель</option>
+                            <option value="1019">Развлечения</option>
+                            <option value="2612">Причина или сообщество</option>
+                        </select></td>
+                    <td>
+                        <input class="category" name="category-pages_category" type="submit"
+                            onClick="add_filter(this,'pages_category')" value="Добавить фильтр">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+
+
+
+
+        <div id="filter-dates">
+
+            <h3>Фильтровать по дате</h3>
+            <table>
+                <tr>
+                    <td>
+
+                        Дата начала:</td>
+                    <td>
+                        <select name="start_year" id="start_year">
+                            <option disabled selected value> -- год -- </option>
+                            <script language="javascript" type="text/javascript">
+                                for (var d = new Date().getFullYear(); d > 2000; d--) {
+                                    document.write('<option value="' + d + '"">' + d + '</option>');
+                                }
+                            </script>
+                        </select>
+                        <select name="start_month" id="start_month">
+                            <option disabled selected value> -- месяц -- </option>
+                            <script language="javascript" type="text/javascript">
+                                for (var d = 1; d <= 12; d++) {
+                                    document.write('<option value="' + d + '"">' + d + '</option>');
+                                }
+                            </script>
+                        </select>
+                        <select name="start_day" id="start_day">
+                            <option disabled selected value> -- день -- </option>
+                            <script language="javascript" type="text/javascript">
+                                for (var d = 1; d <= 31; d++) {
+                                    document.write('<option value="' + d + '"">' + d + '</option>');
+                                }
+                            </script>
+                        </select></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        Дата окончания:</td>
+                    <td>
+                        <select name="end_year" id="end_year">
+                            <option disabled selected value> -- год -- </option>
+                            <script language="javascript" type="text/javascript">
+                                for (var d = new Date().getFullYear(); d > 2000; d--) {
+                                    document.write('<option value="' + d + '"">' + d + '</option>');
+                                }
+                            </script>
+                        </select>
+                        <select name="end_month" id="end_month">
+                            <option disabled selected value> -- месяц -- </option>
+                            <script language="javascript" type="text/javascript">
+                                for (var d = 1; d <= 12; d++) {
+                                    document.write('<option value="' + d + '"">' + d + '</option>');
+                                }
+                            </script>
+                        </select>
+                        <select name="end_day" id="end_day">
+                            <option disabled selected value> -- день -- </option>
+                            <script language="javascript" type="text/javascript">
+                                for (var d = 1; d <= 31; d++) {
+                                    document.write('<option value="' + d + '"">' + d + '</option>');
+                                }
+                            </script>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="submit" name="date-filter" value="Добавить дату в фильтр" onClick="add_date_filter()">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="filter-keywords">
+
+            <h3>Фильтр по ключевым словам</h3>
+
+            <input type="text" name="search_keyword" id="search_keyword" placeholder="Ключевые слова" value="" size="30">
+
+        </div>
+
+
+        <div id="final-buttons">
+            <input type="submit" name="make_url" onClick="alert(make_url())" value="Показать URL-адресс">
+            <input type="submit" name="make_url" onClick="window.open(make_url())" value="Открыть поиск по фильтрам в новом окне">
+            <input type="submit" name="clear-filters" value='Очистить фильтры' onClick="clear_filters()">
+
+        </div>
+
+
+        <div id="current-filters">
+            <h2>Текущие фильтры</h2>
+
+        </div>
+
+    </div>
+
+</body>

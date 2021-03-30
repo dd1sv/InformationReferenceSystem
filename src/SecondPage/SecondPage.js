@@ -84,6 +84,21 @@ export default function PermanentDrawerRight() {
          <a href="https://workspace.google.com/marketplace/app/mindmup_2_for_google_drive/758379822725" className={classes.link}>Mindmup 2</a>
         </Typography>
 
+       <Typography paragraph variant="h6" gutterBottom style={{marginTop: '60px'}}>
+        Также уделите внимание используемым никнеймам и логинам изучаемой цели, они могут повторно использоваться в разных социальных сетях. Автоматизировать процесс проверки других социальных сетей на их использование можно с помощью:
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="go.mail.ru/search_social" className={classes.link}>Сервис от mail.ru</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="instantusername.com" className={classes.link}>Instantusername</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="whatsmyname.app" className={classes.link}>Whatsmyname.app</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://namechk.com" className={classes.link}>Namechk</a>
+        </Typography>
         <Typography paragraph variant="h5" gutterBottom style={{marginTop: '60px'}}>
         В меню справа выберите социальную сеть, в которой вы хотите провести исследование для поиска информации, после чего вам отобразиться меню состоящее из пунктов, в зависимости от искомой информации. Последовательность необязательна.
         </Typography>

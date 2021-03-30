@@ -51,6 +51,7 @@ function App() {
     <Route exact path="/search-page/Twitter" render={()=><Twitter url={'/program-pages/Twitter'}/>} component={Twitter}/>
     <Route exact path="/search-page/Instagram" render={()=><Instagram url={'/program-pages/Instagram'}/>} component={Instagram}/>
     <Route exact path="/search-page/TikTok" render={()=><TikTok url={'/program-pages/TikTok'}/>} component={TikTok}/>
+   
 
 
 
