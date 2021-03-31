@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import {StartTopMenu, StartCards} from './StartPage'
-import Grid from '@material-ui/core/Grid';
+import {StartTopMenu} from './StartPage'
+
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FirstPage from './FirstPage';

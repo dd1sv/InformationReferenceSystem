@@ -1,18 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import { Link } from 'react-router-dom';
 import Menu from './menu'
 import Box from '@material-ui/core/Box';
 
@@ -99,6 +90,46 @@ export default function PermanentDrawerRight() {
         <Typography  gutterBottom>
          <a href="https://namechk.com" className={classes.link}>Namechk</a>
         </Typography>
+
+        <Typography paragraph variant="h6" gutterBottom style={{marginTop: '60px'}}>
+        рекомендуется найденные профили - либо добавлять в избранные, если такая функция есть в социальных сетях, либо совершать учёт id. Так как исследумые обект может менять - адрес страницы, имена, фамилии и имена, сведения о себе, в отличии от id. Ниже будет перечислен список сервисов для каждой социальной сети:
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://regvk.com/id/" className={classes.link}>ВКонтакте</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://instaguru.online/kak-najti-id-polzovatelya-v-instagrame/" className={classes.link}>Instagram</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://tweeterid.com" className={classes.link}>Twitter</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://findmyfbid.com/" className={classes.link}>Facebook</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://iklife.ru/socialnye-seti/odnoklassniki/kak-uznat-id-stranicy-v-odnoklassnikah.html" className={classes.link}>Одноклассники</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://commentpicker.com/tiktok-id.php" className={classes.link}>Tik-tok</a>
+        </Typography>
+
+        <Typography paragraph variant="h6" gutterBottom style={{marginTop: '60px'}}>
+        Не стоит забывать про возможность попытки восстановления пароля во всех социальных сетях - она может дать частичный email-адресс и номер телефона. Email-адрес может быть также синхронизирован в социальных сетях на ряду с номером телефона, для дальнейшего отображения профиля в рекомендательных системах.
+        </Typography>
+
+        <Typography paragraph variant="h6" gutterBottom style={{marginTop: '60px'}}>
+        Если у исследователя в наличии фото, качество которого затрудняет дальнейшее расслеодвание и изучени объекта. Есть вероятность его улучшить с помощью следующих сервисов:
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://letsenhance.io/" className={classes.link}>Letsenhance</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://www.imgonline.com.ua/" className={classes.link}>imgonline</a>
+        </Typography>
+        <Typography  gutterBottom>
+         <a href="https://www.myheritage.com/?lang=RU" className={classes.link}>myheritage</a>
+        </Typography>
+
         <Typography paragraph variant="h5" gutterBottom style={{marginTop: '60px'}}>
         В меню справа выберите социальную сеть, в которой вы хотите провести исследование для поиска информации, после чего вам отобразиться меню состоящее из пунктов, в зависимости от искомой информации. Последовательность необязательна.
         </Typography>

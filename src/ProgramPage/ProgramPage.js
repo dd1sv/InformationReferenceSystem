@@ -2,8 +2,7 @@ import React from 'react';
 import Tree from 'react-d3-tree';
 import { useCenteredTree } from "./helpers";
 import orgChartJson from "./data/org-chart.json";
-// This is a simplified example of an org chart with a depth of 2.
-// Note how deeper levels are defined recursively via the `children` property.
+
 
 
 export default function ProgramPage() {
@@ -25,4 +24,3 @@ export default function ProgramPage() {
     </div>
   );
 }
-// style={{transform: "translate(573.46875,334.5) scale(1)"}}

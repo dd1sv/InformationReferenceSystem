@@ -1,13 +1,8 @@
-import logo from './logo.svg';
-import { PreparationPage } from './PreparationPage/PreparationPage';
-import { SecondPage } from './SecondPage/SecondPage';
-
-import {StartTopMenu, StartCards} from './StartPage';
-import Grid from '@material-ui/core/Grid';
+import { StartCards} from './StartPage';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {HashRouter as Router, Route} from 'react-router-dom';
-import {App} from './App'
+import {HashRouter as Router} from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,10 +38,10 @@ function FirstPage() {
     <Router>
     {/* <Grid container spacing={1}> */}
     <div className={classes.card}>
-    <StartCards  name={'Наставления перед проведением сбора информации в социальных сетях'} url={'/preparation'} description={'ЛлалалалалалОПИСАНИЕаываыва ываыва ываыва ываыва'}/>
+    <StartCards imgUrl={'img/2.webp'} name={'Наставления перед проведением сбора информации в социальных сетях'} url={'/preparation'} description={'Обязательно к изучениею, перед первым этапом поиска и сбора информации о человеке в социальных сетях'}/>
     </div>
     <div className={classes.card}>
-    <StartCards  name={'Реализация поиска информации о человеке в социальных сетях'} url={'/search-page'} description={'ЛлалалалалалОПИСАНИЕаываыва ываыва ываыва ываыва'}/>
+    <StartCards imgUrl={'img/1.png'} name={'Реализация поиска информации о человеке в социальных сетях'} url={'/search-page'} description={'Описаны подходы и методика к изучению профилей и их поиску в социальных сетях'}/>
     </div>
     <div className={classes.card}>
     <StartCards imgUrl={'img/3.png'} name={'Программы и сервисов для поиса, сбора и хранения информации в социальных сетях'} url={'/program-pages'} description={'Дерево связей с названиями и URL-адресами'}/>
